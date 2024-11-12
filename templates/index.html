@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Visualization</title>
+</head>
+<body>
+  <h1>Data Visualization</h1>
+  <div>
+    <button onclick="makeAPICall('visualize?dataType=temperature')">Temperature</button>
+    <button onclick="makeAPICall('visualize?dataType=ph')">pH</button>
+    <button onclick="makeAPICall('visualize?dataType=oxygen')">Distilled Oxygen</button>
+    <button onclick="makeAPICall('visualize?dataType=pressure')">Pressure</button>
+  </div>
+  <img hidden id="image_block" src="/files/test.png">
+  <script>
+    function makeAPICall(url) {
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("image_block").src = data.message;
+          document.getElementById("image_block").removeAttribute("hidden");
+        })
+        .catch(error => console.error(error));
+    }
+  </script>
+</body>
+</html>
