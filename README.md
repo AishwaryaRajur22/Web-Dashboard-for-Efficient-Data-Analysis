@@ -1,16 +1,37 @@
-# Ark 2023 Software Engineering Hackathon
+# Web dashboard for efficient data analysis
 
-## Introduction
+This project is a web-based dashboard designed to visualize real-time process data originating from a bioreactor. It allows users to monitor key metrics like Temperature, pH, Distilled Oxygen, and Pressure over time using a PostgreSQL database as the data source.
 
-At Ark Biotech, we're building bioreactors purpose-built for cultivated meat, with a mission to 100x the industry’s capacity by 2035. The Data Systems team is responsible for everything from production, model-based control software to web-based data monitoring applications.
+---
 
-In this project, you'll get the chance to demonstrate your proficiency in Python, building a simple web-based dashboard to visualize real-time process data originating from one of our bioreactors.
+## Features
 
-## Technical Details
+- **Visualizations**:
+  - Time-series plots for:
+    - **Temperature** (°C)
+    - **pH** (unitless)
+    - **Distilled Oxygen** (%)
+    - **Pressure** (psi)
+- **Real-Time Data**: The dashboard updates dynamically, reflecting the most recent data available in the database.
+- **Web Interface**: Accessible locally via [http://localhost:8888](http://localhost:8888).
 
-In this directory, you'll find a `Dockerfile` that defines the image your code will be copied into and installed in. Specifically, your source code will be installed into a Python 3.10 virtual environment as a package via pip, along with any dependencies you've specified in a `requirements.txt` file.
+---
 
-You'll also find a `compose.yaml` file that defines the container that'll be used to run your code. Specifically, to serve your web-based dashboard in a local browser at http://localhost:8888/, Docker is configured to start the container by executing `run-app`, the expected [entrypoint](https://setuptools.pypa.io/en/latest/userguide/entry_point.html) for your application.
+## Getting Started
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Docker**: [Install Docker](https://www.docker.com/)
+- **Docker Compose**: [Install Docker Compose](https://docs.docker.com/compose/)
+
+### Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/bioreactor-dashboard.git
+   cd bioreactor-dashboard
 
 ### The database
 
@@ -62,19 +83,3 @@ Run `docker compose up` and navigate your browser to http://localhost:8888/. Tha
 ## Minimum Viable Project
 
 The dashboard should allow the user to plot each of these four series (Temperature, pH, Distilled Oxygen, and Pressure) over time.
-
-### How you'll be evaluated
-
-1) Does your package install successfully?
-2) Can your dashboard be viewed at http://localhost:8888/, does it fulfill the MVP specification, and does it look good?
-3) Is your code high quality, e.g. does it follow PEP8, is it fully type annotated, are there comments?
-4) Bonus features.
-
-### Bonus features
-
-Please do not work on these features until you've successfully completed the MVP, and haven't run out of time.
-
-1) Can you allow the user to select the time window?
-2) Can you add a button to refresh the data without refreshing the page, or auto-refresh the page for the user?
-3) Can you add a "Download as csv" button?
-
